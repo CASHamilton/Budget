@@ -31,38 +31,6 @@ namespace Budget
             mvm = DataContext as MainViewModel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try 
-            {
-                using (var ent = new DataEntities())
-                {
-                    var item = (from a in ent.user where a.username == username.Text select a).FirstOrDefault();
-
-                    if(item == null)
-                    {
-                        //this is a new user
-                        //add the new user
-                        item = new user();
-                        item.username = username.Text;
-                        item.password = password.Text;
-                        item.email = email.Text;
-
-                        ent.user.Add(item);
-                        ent.SaveChanges();
-                    }
-                    else
-                    {
-                        username.Text = "ERROR";
-                        password.Text = "ERROR";
-                        email.Text = "ERROR";
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                //TODO later
-            }
-        }
+      
     }
 }
