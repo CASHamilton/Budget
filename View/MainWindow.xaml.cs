@@ -33,7 +33,7 @@ namespace Budget
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
+            try 
             {
                 using (var ent = new DataEntities())
                 {
